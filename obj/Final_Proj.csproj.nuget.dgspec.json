@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\finni\\source\\repos\\Tester\\Tester.csproj": {}
+    "C:\\Users\\finni\\source\\repos\\Final Project\\FinalProject_CompProg\\Final_Proj.csproj": {}
   },
   "projects": {
-    "C:\\Users\\finni\\source\\repos\\Tester\\Tester.csproj": {
+    "C:\\Users\\finni\\source\\repos\\Final Project\\FinalProject_CompProg\\Final_Proj.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\finni\\source\\repos\\Tester\\Tester.csproj",
-        "projectName": "Tester",
-        "projectPath": "C:\\Users\\finni\\source\\repos\\Tester\\Tester.csproj",
+        "projectUniqueName": "C:\\Users\\finni\\source\\repos\\Final Project\\FinalProject_CompProg\\Final_Proj.csproj",
+        "projectName": "Final_Proj",
+        "projectPath": "C:\\Users\\finni\\source\\repos\\Final Project\\FinalProject_CompProg\\Final_Proj.csproj",
         "packagesPath": "C:\\Users\\finni\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\finni\\source\\repos\\Tester\\obj\\",
+        "outputPath": "C:\\Users\\finni\\source\\repos\\Final Project\\FinalProject_CompProg\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,6 +44,24 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.EntityFrameWorkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.13, )"
+            },
+            "Microsoft.EntityFrameWorkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.13, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.13, )"
+            },
+            "NSwag.AspNetCore": {
+              "target": "Package",
+              "version": "[13.14.4, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
