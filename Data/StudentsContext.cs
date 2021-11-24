@@ -15,6 +15,6 @@ namespace FinalProject_CompProg.Data
                 new Student {id = 3, fullName = "Srishant Burdhan", birthDate = "01/22/2002", collegeProgram = "IT - Software Development and Technologies Track", collegeYear = "Sophomore"}
             );
         }
-         public DbSet<Student> Students {get; set;}
+         public DbSet<Student> Student {get; set;}
     }
 }

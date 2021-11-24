@@ -1,6 +1,8 @@
 ﻿using FinalProject_CompProg.Data;
+using FinalProject_CompProg.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using FinalProject_CompProg.Interfaces;
 
 namespace FinalProject_CompProg.Controllers
 {
@@ -10,9 +12,9 @@ namespace FinalProject_CompProg.Controllers
     {
 
         private readonly ILogger<StudentsController> _logger;
-        private readonly StudentsContext _context;
+        private readonly IStudentsContextDAO _context;
 
-        public StudentsController(ILogger<StudentsController> logger, StudentsContext context)
+        public StudentsController(ILogger<StudentsController> logger, IStudentsContextDAO context)
         {
             _logger = logger;
             _context = context;
@@ -21,7 +23,7 @@ namespace FinalProject_CompProg.Controllers
         [HttpGet]
         public IActionResult Get()
        {
-            return Ok(_context.Students.ToList());
+            return Ok(_context.GetAllStudents());
        }
     }
 }
