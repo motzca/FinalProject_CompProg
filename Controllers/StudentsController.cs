@@ -1,7 +1,4 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Threading.Tasks;
+﻿using FinalProject_CompProg.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -13,16 +10,18 @@ namespace FinalProject_CompProg.Controllers
     {
 
         private readonly ILogger<StudentsController> _logger;
+        private readonly StudentsContext _context;
 
-        public StudentsController(ILogger<StudentsController> logger)
+        public StudentsController(ILogger<StudentsController> logger, StudentsContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         [HttpGet]
-        public IActionResult<StudentsController> Get()
-        {
-            return OK();
-        }
+        public IActionResult Get()
+       {
+            return Ok(_context.Students.ToList());
+       }
     }
 }
