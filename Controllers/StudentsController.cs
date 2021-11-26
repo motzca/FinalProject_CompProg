@@ -68,5 +68,22 @@ namespace FinalProject_CompProg.Controllers
             }
             return Ok();
         }
+
+
+        [HttpPost]
+        public IActionResult Post(Student student)
+        {
+            var result = _context.Add(student);
+
+            if(result == null)
+            {
+                return StatusCode(500, "Student alreay added");
+            }
+             if (result == 0)
+            {
+                return StatusCode(500, "An error occured while processing your request");
+            }
+            return Ok();
+        }
     }
 }

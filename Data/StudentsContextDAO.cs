@@ -58,8 +58,30 @@ namespace FinalProject_CompProg.Data
             catch(Exception)
             {
                 return 0;
-            }
-            
+            }  
         }
+        public int? Add(Student student)
+            {
+                var studentInfo = _context.Student
+                .Where(x => x.fullName.Equals(student.fullName) && x.birthDate.Equals(student.birthDate))
+                .FirstOrDefault();
+                
+            if (studentInfo != null)
+            {
+                return null;
+            }
+
+                try
+                {
+                    _context.Student.Add(student);
+                    _context.SaveChanges();
+                    return 1;
+                }
+                catch (Exception)
+                {
+                     return 0;
+                }
+                
+            }
     }
 }

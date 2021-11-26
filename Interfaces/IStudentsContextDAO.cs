@@ -12,5 +12,7 @@ namespace FinalProject_CompProg.Interfaces
         int? RemoveStudentById(int id);
 
         int? UpdateStudent (Student student);
+
+        int? Add(Student student);
     }
 }
