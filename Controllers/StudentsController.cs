@@ -25,5 +25,17 @@ namespace FinalProject_CompProg.Controllers
        {
             return Ok(_context.GetAllStudents());
        }
+
+        [HttpGet("id")]
+        public IActionResult Get(int id)
+        {
+                var student = _context.GetById(id);
+
+                if(student == null)
+                {
+                    return NotFound();
+                }
+                return Ok(student);
+        }
     }
 }

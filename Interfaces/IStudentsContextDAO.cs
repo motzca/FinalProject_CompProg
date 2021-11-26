@@ -6,5 +6,7 @@ namespace FinalProject_CompProg.Interfaces
     public interface IStudentsContextDAO
     {
         List<Student> GetAllStudents();
+
+        Student GetById(int id);
     }
 }

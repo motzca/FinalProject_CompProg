@@ -27,7 +27,7 @@ namespace FinalProject_CompProg
             options.UseSqlServer(Configuration.GetConnectionString("StudentsContext")));
             services.AddMvc();
             services.AddSwaggerDocument();
-            services.AddScoped<IStudentsContextDOA, StudentsContextDAO>();
+            services.AddScoped<IStudentsContextDAO, StudentsContextDAO>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
