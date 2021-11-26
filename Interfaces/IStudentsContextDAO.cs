@@ -8,5 +8,7 @@ namespace FinalProject_CompProg.Interfaces
         List<Student> GetAllStudents();
 
         Student GetById(int id);
+
+        Student RemoveStudentById(int id);
     }
 }

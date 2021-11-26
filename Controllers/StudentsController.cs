@@ -37,5 +37,21 @@ namespace FinalProject_CompProg.Controllers
                 }
                 return Ok(student);
         }
+
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            var student = _context.RemoveStudentById(id);
+            
+            if (student == null)
+            {
+                return NotFound(id);
+            }
+            if (string.IsNullOrEmpty(student.fullName))
+            {
+                return StatusCode(500, "An error occured while processing your request");
+            }
+            return Ok();
+        }
     }
 }

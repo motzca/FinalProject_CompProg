@@ -22,7 +22,25 @@ namespace FinalProject_CompProg.Data
         {
             return _context.Student.Where(x => x.id.Equals(id)).FirstOrDefault();
         }
-
+        public Student RemoveStudentById(int id)
+        {
+            var student = this.GetById(id);
+            if(student == null)
+            {
+                return null;
+            }
+            try
+            {
+                _context.Student.Remove(student);
+                _context.SaveChanges();
+                return student;
+            }
+            catch(Exception)
+            {
+                return new Student();
+            }
+            
+        }
         
     }
 }
