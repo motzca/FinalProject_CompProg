@@ -9,6 +9,8 @@ namespace FinalProject_CompProg.Interfaces
 
         Student GetById(int id);
 
-        Student RemoveStudentById(int id);
+        int? RemoveStudentById(int id);
+
+        int? UpdateStudent (Student student);
     }
 }

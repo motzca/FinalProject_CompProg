@@ -41,13 +41,28 @@ namespace FinalProject_CompProg.Controllers
         [HttpDelete]
         public IActionResult Delete(int id)
         {
-            var student = _context.RemoveStudentById(id);
+            var result = _context.RemoveStudentById(id);
             
-            if (student == null)
+            if (result == null)
             {
                 return NotFound(id);
             }
-            if (string.IsNullOrEmpty(student.fullName))
+            if (result == 0)
+            {
+                return StatusCode(500, "An error occured while processing your request");
+            }
+            return Ok();
+        }
+
+        [HttpPut]
+        public IActionResult Put(Student student)
+        {
+            var result = _context.UpdateStudent(student);
+             if (result == null)
+            {
+                return NotFound(student);
+            }
+            if (result == 0)
             {
                 return StatusCode(500, "An error occured while processing your request");
             }
