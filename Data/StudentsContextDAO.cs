@@ -16,12 +16,12 @@ namespace FinalProject_CompProg.Data
 
         public List<Student> GetAllStudents()
         {
-            return _context.Student.ToList();
+            return _context.Students.ToList();
         }
 
         public Student GetById(int id)
         {
-            return _context.Student.Where(x => x.id.Equals(id)).FirstOrDefault();
+            return _context.Students.Where(x => x.id.Equals(id)).FirstOrDefault();
         }
         public int? RemoveStudentById(int id)
         {
@@ -29,7 +29,7 @@ namespace FinalProject_CompProg.Data
             if(student == null) return null;
             try
             {
-                _context.Student.Remove(student);
+                _context.Students.Remove(student);
                 _context.SaveChanges();
                 return 1;
             }
@@ -51,7 +51,7 @@ namespace FinalProject_CompProg.Data
             studentToUpdate.collegeYear = student.collegeYear;
             try
             {
-                _context.Student.Update(studentToUpdate);
+                _context.Students.Update(studentToUpdate);
                 _context.SaveChanges();
                 return 1;
             }
@@ -62,7 +62,7 @@ namespace FinalProject_CompProg.Data
         }
         public int? Add(Student student)
             {
-                var studentInfo = _context.Student
+                var studentInfo = _context.Students
                 .Where(x => x.fullName.Equals(student.fullName) && x.birthDate.Equals(student.birthDate))
                 .FirstOrDefault();
                 
@@ -73,7 +73,7 @@ namespace FinalProject_CompProg.Data
 
                 try
                 {
-                    _context.Student.Add(student);
+                    _context.Students.Add(student);
                     _context.SaveChanges();
                     return 1;
                 }

@@ -41,7 +41,7 @@ namespace FinalProject_CompProg
             }
             app.UseOpenApi();
             app.UseSwaggerUi3();
-            context.Database.Migrate();
+            //context.Database.Migrate();
 
             app.UseHttpsRedirection();
 
