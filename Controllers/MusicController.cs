@@ -7,14 +7,14 @@ using FinalProject_CompProg.Interfaces;
 namespace FinalProject_CompProg.Controllers
 {
     [ApiController]
-    [Route("Hobbies")]
-    public class HobbiesController : ControllerBase
+    [Route("[controller]")]
+    public class MusicController : ControllerBase
     {
-        private readonly ILogger<HobbiesController> _logger;
-        private readonly IHobbiesContextDAO _context;
 
+        private readonly ILogger<MusicController> _logger;
+        private readonly IMusicContextDAO _context;
 
-        public HobbiesController(ILogger<HobbiesController> logger, IHobbiesContextDAO context)
+        public MusicController(ILogger<MusicController> logger, IMusicContextDAO context)
         {
             _logger = logger;
             _context = context;
@@ -22,20 +22,32 @@ namespace FinalProject_CompProg.Controllers
 
         [HttpGet]
         public IActionResult Get()
-        {
-            return Ok(_context.GetAllHobbies());    
-        }
+       {
+            return Ok(_context.GetAllSongs());
+       }
 
+        [HttpGet("id")]
+        public IActionResult Get(int id)
+        {
+                var student = _context.GetById(id);
+
+                if(student == null)
+                {
+                    return NotFound();
+                }
+                return Ok(student);
+        }
 
         [HttpDelete]
         public IActionResult Delete(int id)
         {
-            var result = _context.RemoveHobbiesById(id);
-            if(result == null)
+            var result = _context.RemoveSongById(id);
+            
+            if (result == null)
             {
                 return NotFound(id);
             }
-            if(result == 0)
+            if (result == 0)
             {
                 return StatusCode(500, "An error occured while processing your request");
             }
@@ -43,27 +55,12 @@ namespace FinalProject_CompProg.Controllers
         }
 
         [HttpPut]
-        public IActionResult Put(Hobbies hobbies)
+        public IActionResult Put(Music song)
         {
-            var result = _context.UpdateHobbies(hobbies);
-            if(result == null)
+            var result = _context.UpdateSong(song);
+             if (result == null)
             {
-                return NotFound(hobbies.id);
-            }
-            if(result == 0)
-            {
-                return StatusCode(500, "An error occured while processing your request");
-            }
-            return Ok();
-        }
-
-        [HttpPost]
-        public IActionResult Post(Hobbies hobbies)
-        {
-            var result = _context.Add(hobbies);
-            if(result == null)
-            {
-                return StatusCode(500, "Hobbies with same ID already exists");
+                return NotFound(song);
             }
             if (result == 0)
             {
@@ -73,11 +70,20 @@ namespace FinalProject_CompProg.Controllers
         }
 
 
+        [HttpPost]
+        public IActionResult Post(Music song)
+        {
+            var result = _context.Add(song);
 
-
-
-
-
-
+            if(result == null)
+            {
+                return StatusCode(500, "Student alreay added");
+            }
+             if (result == 0)
+            {
+                return StatusCode(500, "An error occured while processing your request");
+            }
+            return Ok();
+        }
     }
 }

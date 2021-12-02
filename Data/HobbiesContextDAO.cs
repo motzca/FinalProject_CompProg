@@ -6,7 +6,7 @@ using System;
 
 namespace FinalProject_CompProg.Data
 {
-    public class HobbiesContextDAO : IRestaurantsContextDAO
+    public class HobbiesContextDAO : IHobbiesContextDAO
     {
         private HobbiesContext _context;
         public HobbiesContextDAO(HobbiesContext context)
@@ -21,7 +21,7 @@ namespace FinalProject_CompProg.Data
 
         public Hobbies GetById(int id)
         {
-            return _context.Hobbies.Where(x => x.id.Equals(id));
+            return _context.Hobbies.Where(x => x.id.Equals(id)).FirstOrDefault();
         }
         public int? RemoveHobbiesById(int id)
         {
@@ -42,10 +42,10 @@ namespace FinalProject_CompProg.Data
             return null;
         }
 
-        public int? UpdateRestaurant (Hobbies hobbies)
+        public int? UpdateHobbies(Hobbies hobbies)
         {
             Hobbies hobbiesToUpdate = this.GetById(hobbies.id);
-            if(hobbiesToUpdateant == null) 
+            if(hobbiesToUpdate == null) 
             {
                 return null;
             }
@@ -53,9 +53,9 @@ namespace FinalProject_CompProg.Data
             try
             {
                 hobbiesToUpdate.name = hobbies.name;
-                hobbiesToUpdate.foodType = hobbies.activityType;
-                hobbiesToUpdate.founder = hobbies.mainInterest;
-                hobbiesToUpdate.foundingYear = hobbies.avgTimeSpent;
+                hobbiesToUpdate.activityType = hobbies.activityType;
+                hobbiesToUpdate.mainInterest = hobbies.mainInterest;
+                hobbiesToUpdate.avgTimeSpent = hobbies.avgTimeSpent;
 
                 _context.Hobbies.Update(hobbiesToUpdate);
                 _context.SaveChanges();
@@ -69,9 +69,11 @@ namespace FinalProject_CompProg.Data
 
         public int? Add(Hobbies hobbies)
         {
-            Restaurant hobbiesWithSameID = _context.Hobbies.Where(x => x.id.Equals(Hobbies.id));
+            Hobbies hobbiesWithSameID = _context.Hobbies.
+            Where(x => x.activityType.Equals(hobbies.activityType) && x.name.Equals(hobbies.name))
+            .FirstOrDefault();
 
-            if(HobbiesWithSameID != null)
+            if(hobbiesWithSameID != null)
             {
                 return null;
             }
