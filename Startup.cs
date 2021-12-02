@@ -23,15 +23,15 @@ namespace FinalProject_CompProg
         {
 
             services.AddControllers();
-            services.AddDbContext<StudentsContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("StudentsContext")));
+            services.AddDbContext<FinalProjectContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("FinalProjectContext")));
             services.AddMvc();
             services.AddSwaggerDocument();
-            services.AddScoped<IStudentsContextDAO, StudentsContextDAO>();
+            //services.AddScoped<IStudentsContextDAO, StudentsContextDAO>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, StudentsContext context)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, FinalProjectContext context)
         {
             if (env.IsDevelopment())
             {

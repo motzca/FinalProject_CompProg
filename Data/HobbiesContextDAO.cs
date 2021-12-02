@@ -8,8 +8,8 @@ namespace FinalProject_CompProg.Data
 {
     public class HobbiesContextDAO : IHobbiesContextDAO
     {
-        private HobbiesContext _context;
-        public HobbiesContextDAO(HobbiesContext context)
+        private FinalProjectContext _context;
+        public HobbiesContextDAO(FinalProjectContext context)
         {
             _context = context;
         }

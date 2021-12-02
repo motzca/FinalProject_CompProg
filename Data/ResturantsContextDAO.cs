@@ -8,8 +8,8 @@ namespace FinalProject_CompProg.Data
 {
     public class RestaurantsContextDAO : IRestaurantsContextDAO
     {
-        private RestaurantsContext _context;
-        public RestaurantsContextDAO(RestaurantsContext context)
+        private FinalProjectContext _context;
+        public RestaurantsContextDAO(FinalProjectContext context)
         {
             _context = context;
         }

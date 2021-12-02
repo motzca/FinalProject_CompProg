@@ -8,8 +8,8 @@ namespace FinalProject_CompProg.Data
 {
     public class MusicContextDAO : IMusicContextDAO
     {
-        private MusicContext _context;
-        public MusicContextDAO(MusicContext context)
+        private FinalProjectContext _context;
+        public MusicContextDAO(FinalProjectContext context)
         {
             _context = context;
         }
