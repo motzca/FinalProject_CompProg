@@ -7,7 +7,7 @@ using FinalProject_CompProg.Interfaces;
 namespace FinalProject_CompProg.Controllers
 {
     [ApiController]
-    [Route("Restaurants")]
+    [Route("[controller]")]
     public class RestaurantsController : ControllerBase
     {
         private readonly ILogger<RestaurantsController> _logger;

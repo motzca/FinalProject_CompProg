@@ -49,14 +49,14 @@ namespace FinalProject_CompProg.Data
             {
                 return null;
             }
+            restaurantToUpdate.name = restaurant.name;
+            restaurantToUpdate.foodType = restaurant.foodType;
+            restaurantToUpdate.founder = restaurant.founder;
+            restaurantToUpdate.foundingYear = restaurant.foundingYear;
+
 
             try
             {
-                restaurantToUpdate.name = restaurant.name;
-                restaurantToUpdate.foodType = restaurant.foodType;
-                restaurantToUpdate.founder = restaurant.founder;
-                restaurantToUpdate.foundingYear = restaurant.foundingYear;
-
                 _context.Restaurants.Update(restaurantToUpdate);
                 _context.SaveChanges();
                 return 1;

@@ -44,19 +44,17 @@ namespace FinalProject_CompProg.Data
 
         public int? UpdateHobbies(Hobbies hobbies)
         {
-            Hobbies hobbiesToUpdate = this.GetById(hobbies.id);
+            var hobbiesToUpdate = this.GetById(hobbies.id);
             if(hobbiesToUpdate == null) 
             {
                 return null;
             }
-
-            try
-            {
-                hobbiesToUpdate.name = hobbies.name;
+            hobbiesToUpdate.name = hobbies.name;
                 hobbiesToUpdate.activityType = hobbies.activityType;
                 hobbiesToUpdate.mainInterest = hobbies.mainInterest;
                 hobbiesToUpdate.avgTimeSpent = hobbies.avgTimeSpent;
-
+            try
+            {
                 _context.Hobbies.Update(hobbiesToUpdate);
                 _context.SaveChanges();
                 return 1;
@@ -69,7 +67,7 @@ namespace FinalProject_CompProg.Data
 
         public int? Add(Hobbies hobbies)
         {
-            Hobbies hobbiesWithSameID = _context.Hobbies.
+            var hobbiesWithSameID = _context.Hobbies.
             Where(x => x.activityType.Equals(hobbies.activityType) && x.name.Equals(hobbies.name))
             .FirstOrDefault();
 

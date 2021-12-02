@@ -7,7 +7,7 @@ using FinalProject_CompProg.Interfaces;
 namespace FinalProject_CompProg.Controllers
 {
     [ApiController]
-    [Route("Hobbies")]
+    [Route("[controller]")]
     public class HobbiesController : ControllerBase
     {
         private readonly ILogger<HobbiesController> _logger;
