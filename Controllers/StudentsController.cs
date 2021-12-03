@@ -21,13 +21,13 @@ namespace FinalProject_CompProg.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Get() //Returns all of the students
        {
             return Ok(_context.GetAllStudents());
        }
 
         [HttpGet("id")]
-        public IActionResult Get(int id)
+        public IActionResult Get(int id) //Returns the given student based on the input ID
         {
                 var student = _context.GetById(id);
 
@@ -39,7 +39,7 @@ namespace FinalProject_CompProg.Controllers
         }
 
         [HttpDelete]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int id) //Removes the student that has the same ID as the input ID 
         {
             var result = _context.RemoveStudentById(id);
             
@@ -55,7 +55,7 @@ namespace FinalProject_CompProg.Controllers
         }
 
         [HttpPut]
-        public IActionResult Put(Student student)
+        public IActionResult Put(Student student) //Updates the student that matches the input student
         {
             var result = _context.UpdateStudent(student);
              if (result == null)
@@ -71,7 +71,7 @@ namespace FinalProject_CompProg.Controllers
 
 
         [HttpPost]
-        public IActionResult Post(Student student)
+        public IActionResult Post(Student student) //Adds a student
         {
             var result = _context.Add(student);
 

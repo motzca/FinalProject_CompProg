@@ -21,14 +21,14 @@ namespace FinalProject_CompProg.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Get() //Returns all hobbies
         {
             return Ok(_context.GetAllHobbies());    
         }
 
 
         [HttpDelete]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int id) //Removes the hobby with the same ID as the input ID
         {
             var result = _context.RemoveHobbiesById(id);
             if(result == null)
@@ -43,7 +43,7 @@ namespace FinalProject_CompProg.Controllers
         }
 
         [HttpPut]
-        public IActionResult Put(Hobbies hobbies)
+        public IActionResult Put(Hobbies hobbies) //Updates the hobby that matches the input hobby
         {
             var result = _context.UpdateHobbies(hobbies);
             if(result == null)
@@ -58,7 +58,7 @@ namespace FinalProject_CompProg.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(Hobbies hobbies)
+        public IActionResult Post(Hobbies hobbies) //Adds a hobby
         {
             var result = _context.Add(hobbies);
             if(result == null)

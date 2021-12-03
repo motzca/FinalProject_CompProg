@@ -21,13 +21,13 @@ namespace FinalProject_CompProg.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Get()  //Returns all of the songs 
        {
             return Ok(_context.GetAllSongs());
        }
 
         [HttpGet("id")]
-        public IActionResult Get(int id)
+        public IActionResult Get(int id) //returns the song based on the input ID
         {
                 var student = _context.GetById(id);
 
@@ -39,7 +39,7 @@ namespace FinalProject_CompProg.Controllers
         }
 
         [HttpDelete]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int id) //Removes the song based on the input ID
         {
             var result = _context.RemoveSongById(id);
             
@@ -55,7 +55,7 @@ namespace FinalProject_CompProg.Controllers
         }
 
         [HttpPut]
-        public IActionResult Put(Music song)
+        public IActionResult Put(Music song) //Modifys a song that matches the input song
         {
             var result = _context.UpdateSong(song);
              if (result == null)
@@ -71,7 +71,7 @@ namespace FinalProject_CompProg.Controllers
 
 
         [HttpPost]
-        public IActionResult Post(Music song)
+        public IActionResult Post(Music song) //Adds a song
         {
             var result = _context.Add(song);
 

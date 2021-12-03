@@ -21,14 +21,14 @@ namespace FinalProject_CompProg.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Get()  //returns all of the restaurants
         {
             return Ok(_context.GetAllRestaurants());    
         }
 
 
         [HttpDelete]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int id) //removes the given restaurant based on the input ID
         {
             var result = _context.RemoveRestaurantById(id);
             if(result == null)
@@ -43,7 +43,7 @@ namespace FinalProject_CompProg.Controllers
         }
 
         [HttpPut]
-        public IActionResult Put(Restaurant restaurant)
+        public IActionResult Put(Restaurant restaurant) //Modifys the restaurant that matches the ID of the one provided
         {
             var result = _context.UpdateRestaurant(restaurant);
             if(result == null)
@@ -58,7 +58,7 @@ namespace FinalProject_CompProg.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(Restaurant restaurant)
+        public IActionResult Post(Restaurant restaurant) //Adds the restaurant provided
         {
             var result = _context.Add(restaurant);
             if(result == null)
