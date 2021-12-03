@@ -26,6 +26,7 @@ namespace FinalProject_CompProg.Controllers
             return Ok(_context.GetAllHobbies());    
         }
 
+         [HttpGet("id")]
          public IActionResult Get(int id) //returns the hobby based on the input ID
         {
                 var hobby = _context.GetById(id);

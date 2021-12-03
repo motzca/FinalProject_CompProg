@@ -26,6 +26,7 @@ namespace FinalProject_CompProg.Controllers
             return Ok(_context.GetAllRestaurants());    
         }
 
+        [HttpGet("id")]
          public IActionResult Get(int id) //returns the song based on the input ID
         {
                 var restaurant = _context.GetById(id);

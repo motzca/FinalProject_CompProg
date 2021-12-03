@@ -64,8 +64,7 @@ namespace FinalProject_CompProg.Data
         {
             //First try to find if a student with the same id exists already
             var studentInfo = _context.Students
-            .Where(x => x.fullName.Equals(student.fullName) && x.birthDate.Equals(student.birthDate))
-            .FirstOrDefault();
+            .Where(x => x.fullName.Equals(student.fullName) && x.birthDate.Equals(student.birthDate)).FirstOrDefault();
             
         if (studentInfo != null) //If there is already a student
         {
