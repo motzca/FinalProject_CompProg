@@ -26,6 +26,17 @@ namespace FinalProject_CompProg.Controllers
             return Ok(_context.GetAllRestaurants());    
         }
 
+        [HttpGet("id")]
+        public IActionResult Get(int id) //Returns the given restaurant based on the input ID
+        {
+                Restaurant restaurant = _context.GetById(id);
+
+                if(restaurant == null)
+                {
+                    return NotFound();
+                }
+                return Ok(restaurant);
+        }
 
         [HttpDelete]
         public IActionResult Delete(int id) //removes the given restaurant based on the input ID
