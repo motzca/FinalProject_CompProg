@@ -26,6 +26,17 @@ namespace FinalProject_CompProg.Controllers
             return Ok(_context.GetAllHobbies());    
         }
 
+         public IActionResult Get(int id) //returns the hobby based on the input ID
+        {
+                var hobby = _context.GetById(id);
+
+                if(hobby == null)
+                {
+                    return NotFound();
+                }
+                return Ok(hobby);
+        }
+
 
         [HttpDelete]
         public IActionResult Delete(int id) //Removes the hobby with the same ID as the input ID
