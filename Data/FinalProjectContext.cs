@@ -19,9 +19,9 @@ namespace FinalProject_CompProg.Data
                 new Restaurant {id = 3, name = "Olive Garden", foodType = "Spaghetti", founder = "Bill Darden", foundingYear = 1982});
 
             builder.Entity<Music>().HasData(
-                new Music { id = 1, songTitle = "Taunt", artistName = "Lovejoy", musicGenre = "Indie Rock"},
-                new Music {id = 2, songTitle = "Tongues & Teeth", artistName = "The Crane Wives", musicGenre = "American Folk Rock"},
-                new Music {id = 3, songTitle = "Pretty In Pink", artistName = "Scream Queen", musicGenre = "Screamo"}
+                new Music { id = 1, songTitle = "Taunt", artistName = "Lovejoy", songYear = "2021", musicGenre = "Indie Rock"},
+                new Music {id = 2, songTitle = "Tongues & Teeth", artistName = "The Crane Wives", songYear = "2012", musicGenre = "American Folk Rock"},
+                new Music {id = 3, songTitle = "Pretty In Pink", artistName = "Scream Queen", songYear = "2021", musicGenre = "Screamo"}
             );
 
 builder.Entity<Hobbies>().HasData(

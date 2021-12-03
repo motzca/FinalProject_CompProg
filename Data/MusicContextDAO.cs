@@ -47,6 +47,7 @@ namespace FinalProject_CompProg.Data
 
             songToUpdate.songTitle = song.songTitle; //setting the values of the found song to match the song passed into the method
             songToUpdate.artistName = song.artistName;
+            songToUpdate.songYear = song.songYear;
             songToUpdate.musicGenre = song.musicGenre;
             try
             {

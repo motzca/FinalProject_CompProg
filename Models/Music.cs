@@ -5,6 +5,7 @@ namespace FinalProject_CompProg.Models
         public int id {get; set;}
         public string songTitle {get; set;}
         public string artistName {get; set;}
+        public string songYear {get; set;}
         public string musicGenre {get; set;}
     }
 }
