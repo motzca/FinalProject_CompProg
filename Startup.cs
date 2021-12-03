@@ -24,10 +24,11 @@ namespace FinalProject_CompProg
 
             services.AddControllers();
             services.AddDbContext<FinalProjectContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("FinalProjectContext")));
+            options.UseSqlServer(Configuration.GetConnectionString("FinalProjectContext"))); //Sets up the connection string
             services.AddMvc();
             services.AddSwaggerDocument();
-            services.AddScoped<IStudentsContextDAO, StudentsContextDAO>();
+            //Adds the context scripts for each table and their interface
+            services.AddScoped<IStudentsContextDAO, StudentsContextDAO>();  
             services.AddScoped<IRestaurantsContextDAO, RestaurantsContextDAO>();
             services.AddScoped<IMusicContextDAO,MusicContextDAO>();
             services.AddScoped<IHobbiesContextDAO,HobbiesContextDAO>();
